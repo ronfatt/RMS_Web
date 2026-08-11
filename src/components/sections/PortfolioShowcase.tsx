@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { siteConfig, PortfolioItem } from '@/config/site';
-import { Laptop, Smartphone, ArrowRight } from 'lucide-react';
+import { Laptop, Smartphone, ArrowRight, ExternalLink } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import { Badge } from '@/components/ui/Badge';
 import { useLanguage } from '@/context/LanguageContext';
@@ -30,14 +30,20 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
     onSelectPortfolioItem(item);
   };
 
+  const getItemCategoryText = (item: PortfolioItem) => {
+    if (lang === 'bm') return item.categoryBm || item.categoryZh;
+    if (lang === 'en') return item.categoryEn || item.categoryZh;
+    return item.categoryZh;
+  };
+
   return (
     <section id="portfolio" className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow={t.eyebrow}
-          title={t.title}
-          titleHighlight={t.titleHighlight}
-          subtitle={t.subtitle}
+          eyebrow="FEATURED CLIENT PROJECTS"
+          title="Real Work & Client Showcase"
+          titleHighlight="已上线真实客户案例"
+          subtitle="Explore live websites crafted by RMS Studio for real Malaysian businesses, corporate clients, and personal brands."
         />
 
         {/* Category Switcher */}
@@ -69,8 +75,8 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
               <div className={`relative h-56 p-6 bg-gradient-to-br ${item.color} flex flex-col justify-between overflow-hidden border-b border-white/10`}>
                 <div className="flex items-center justify-between z-10">
                   <Badge variant="accent">{item.badgeText}</Badge>
-                  <span className="text-[11px] font-bold text-white px-2.5 py-0.5 rounded-full bg-slate-950/70 backdrop-blur-md border border-white/10">
-                    {item.categoryZh}
+                  <span className="text-[11px] font-bold text-white px-2.5 py-0.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/10">
+                    {getItemCategoryText(item)}
                   </span>
                 </div>
 
@@ -92,9 +98,15 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                       <Smartphone className="w-3.5 h-3.5 text-indigo-400" /> {t.mobile}
                     </span>
                   </div>
-                  <span className="flex items-center gap-1 text-indigo-300 font-bold group-hover:translate-x-1 transition-transform">
-                    {t.clickPreview} <ArrowRight className="w-3 h-3" />
-                  </span>
+                  <a
+                    href={item.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="flex items-center gap-1 text-sky-300 font-bold hover:text-white transition-colors"
+                  >
+                    <span>Visit Live</span> <ExternalLink className="w-3 h-3" />
+                  </a>
                 </div>
               </div>
 
@@ -114,7 +126,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
         </div>
 
         <p className="mt-8 text-center text-xs text-slate-400 font-medium">
-          {t.note}
+          真实客户成功案例展现 · 验证 RMS Studio 卓越的设计美学与高品质交付能力
         </p>
       </div>
     </section>
