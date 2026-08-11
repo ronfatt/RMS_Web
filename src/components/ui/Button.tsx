@@ -23,25 +23,25 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/30 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+      'inline-flex items-center justify-center font-bold rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
 
     const variants = {
       primary:
-        'bg-slate-100 text-slate-950 font-bold hover:bg-white shadow-lg shadow-white/10 hover:shadow-white/20',
+        'bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 text-white shadow-xl shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-[1.02] border border-indigo-400/30',
       secondary:
-        'bg-slate-900 text-slate-200 hover:bg-slate-800 border border-slate-800',
+        'bg-slate-900/90 text-white hover:bg-slate-800 border border-white/15 backdrop-blur-md shadow-lg',
       whatsapp:
-        'bg-[#25D366] text-slate-950 font-bold shadow-lg shadow-[#25D366]/20 hover:shadow-[#25D366]/35 hover:bg-[#20bd5a]',
+        'bg-gradient-to-r from-[#25D366] to-[#128C7E] text-slate-950 font-black shadow-xl shadow-[#25D366]/30 hover:shadow-[#25D366]/50 hover:scale-[1.02] border border-emerald-300/40',
       outline:
-        'border border-slate-800 text-slate-200 hover:bg-slate-900 hover:border-slate-700',
+        'border border-white/20 text-slate-200 hover:bg-white/10 hover:border-white/30 backdrop-blur-sm',
       ghost:
-        'text-slate-400 hover:text-white hover:bg-slate-900',
+        'text-slate-300 hover:text-white hover:bg-white/5',
     };
 
     const sizes = {
-      sm: 'px-3.5 py-1.5 text-xs font-semibold gap-1.5',
-      md: 'px-5 py-2.5 text-sm font-semibold gap-2',
-      lg: 'px-7 py-3.5 text-base font-semibold gap-2.5',
+      sm: 'px-4 py-2 text-xs font-semibold gap-1.5',
+      md: 'px-6 py-3 text-sm font-bold gap-2',
+      lg: 'px-8 py-4 text-base font-extrabold gap-2.5',
     };
 
     return (

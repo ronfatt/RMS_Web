@@ -3,7 +3,7 @@
 import React from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { siteConfig } from '@/config/site';
-import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { Utensils, Sparkles, Hammer, Briefcase, UserCheck, Camera, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 interface IndustryGridProps {
@@ -11,8 +11,17 @@ interface IndustryGridProps {
 }
 
 export const IndustryGrid: React.FC<IndustryGridProps> = ({ onOpenLeadModal }) => {
+  const iconMap: Record<string, any> = {
+    Utensils,
+    Sparkles,
+    Hammer,
+    Briefcase,
+    UserCheck,
+    Camera,
+  };
+
   return (
-    <section className="py-20 md:py-28 relative bg-[#060709]">
+    <section className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="TARGET AUDIENCE"
@@ -22,35 +31,41 @@ export const IndustryGrid: React.FC<IndustryGridProps> = ({ onOpenLeadModal }) =
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-14">
-          {siteConfig.industries.map((ind) => (
-            <div
-              key={ind.id}
-              className="p-6 rounded-2xl bg-slate-950 border border-slate-800 space-y-3 flex flex-col justify-between"
-            >
-              <div>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-1">
-                  {ind.nameEn}
-                </span>
-                <h3 className="text-lg font-bold text-white">{ind.name}</h3>
-                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
-                  {ind.description}
-                </p>
-              </div>
+          {siteConfig.industries.map((ind) => {
+            const Icon = iconMap[ind.iconName] || Briefcase;
+            return (
+              <div
+                key={ind.id}
+                className="p-6 rounded-3xl glass-card-premium flex flex-col justify-between group"
+              >
+                <div>
+                  <div className="w-12 h-12 rounded-2xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-300 mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-extrabold text-white tracking-tight">{ind.name}</h3>
+                  <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block mb-2">
+                    {ind.nameEn}
+                  </span>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    {ind.description}
+                  </p>
+                </div>
 
-              <div className="pt-3 border-t border-slate-800/80 flex items-center gap-2 text-xs text-emerald-400 font-medium">
-                <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                <span>{ind.highlight}</span>
+                <div className="mt-4 pt-4 border-t border-white/10 flex items-center gap-2 text-xs text-emerald-400 font-semibold">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>{ind.highlight}</span>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Bottom Callout */}
-        <div className="p-8 rounded-2xl bg-slate-950 border border-slate-800 text-center max-w-4xl mx-auto space-y-3">
-          <h4 className="text-lg font-bold text-white">
+        {/* Bottom Banner */}
+        <div className="p-8 rounded-3xl glass-card-accent text-center max-w-4xl mx-auto space-y-4">
+          <h4 className="text-lg sm:text-xl font-extrabold text-white">
             未在列表中找到你的行业？
           </h4>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
+          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto">
             只要您有产品服务需要展示，并希望通过 WhatsApp 获取客户咨询，RM899 配套就能完全覆盖您的需求。
           </p>
           <div className="pt-2">
