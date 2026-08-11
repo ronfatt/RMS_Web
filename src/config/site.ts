@@ -512,23 +512,22 @@ export const siteConfig: SiteConfig = {
     whatsapp: "https://wa.me/601158917029",
   },
 
-  // SEO METADATA
+  // SEO METADATA (DEFAULT: ENGLISH)
   seo: {
-    defaultTitle: "RM899 专业官网定制 | 高端设计 · 3-7天上线 | RMS Studio",
+    defaultTitle: "RM899 Professional Website Design | High-Impact Studio | RMS Studio",
     titleTemplate: "%s | RMS Studio",
-    defaultDescription: "专业，不代表一定昂贵。RMS Studio 为马来西亚中小企业、创业者与个人品牌打造高质感官网。清楚配套，专业设计，直接连接 WhatsApp 转化客户。",
+    defaultDescription: "A professional website doesn't have to cost RM5,000. RMS Studio builds high-impact websites for SMEs, entrepreneurs, and personal brands in Malaysia starting from RM899.",
     siteUrl: "https://rmsstudio.my",
     ogImage: "/og-image.jpg",
     keywords: [
+      "Website Design Malaysia",
+      "SME Website Design Malaysia",
+      "RM899 Website Package",
+      "Professional Web Studio Malaysia",
+      "Landing Page Design Malaysia",
+      "WhatsApp Website Design",
       "网页设计",
       "马来西亚网页设计",
-      "Website Design Malaysia",
-      "SME Website Malaysia",
-      "企业网站设计",
-      "专业网站制作",
-      "RM899 网站设计",
-      "Landing Page 制作",
-      "WhatsApp 询价网站",
     ],
   },
 };

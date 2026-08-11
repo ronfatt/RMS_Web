@@ -76,7 +76,7 @@ export default function RootLayout({
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 
   return (
-    <html lang="zh-Hans" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth">
       <head>
         <script
           type="application/ld+json"

@@ -43,8 +43,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenLeadModal }) => {
   };
 
   const languages: { code: Language; label: string; flag: string }[] = [
-    { code: 'zh', label: '中文', flag: '🇨🇳' },
     { code: 'en', label: 'English', flag: '🇬🇧' },
+    { code: 'zh', label: '中文', flag: '🇨🇳' },
     { code: 'bm', label: 'B. Melayu', flag: '🇲🇾' },
   ];
 
