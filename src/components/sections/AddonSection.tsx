@@ -5,20 +5,25 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { siteConfig } from '@/config/site';
 import { PlusCircle, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 interface AddonSectionProps {
   onOpenLeadModal: () => void;
 }
 
 export const AddonSection: React.FC<AddonSectionProps> = ({ onOpenLeadModal }) => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].addon;
+
   return (
     <section className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="MODULAR UPGRADES"
-          title="需要更多功能？"
-          titleHighlight="之后再升级也可以。"
-          subtitle="RM899 是建立高品质数字门面的起点。随着业务成长，您可以随时按需增加扩展功能，无缝衔接。"
+          eyebrow={t.eyebrow}
+          title={t.title}
+          titleHighlight={t.titleHighlight}
+          subtitle={t.subtitle}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
@@ -47,7 +52,7 @@ export const AddonSection: React.FC<AddonSectionProps> = ({ onOpenLeadModal }) =
               </div>
 
               <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs">
-                <span className="text-slate-400 font-medium">扩展报价</span>
+                <span className="text-slate-400 font-medium">Inquiry</span>
                 <span className="font-bold text-indigo-300 px-2.5 py-1 rounded-lg bg-indigo-500/15 border border-indigo-500/30">
                   {addon.priceText}
                 </span>
@@ -63,7 +68,7 @@ export const AddonSection: React.FC<AddonSectionProps> = ({ onOpenLeadModal }) =
             onClick={onOpenLeadModal}
             icon={<MessageCircle className="w-4 h-4" />}
           >
-            询问特殊定制需求或功能扩展
+            {t.quoteCta}
           </Button>
         </div>
       </div>

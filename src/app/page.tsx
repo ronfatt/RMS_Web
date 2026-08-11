@@ -21,6 +21,7 @@ import { LeadQualificationModal } from '@/components/modals/LeadQualificationMod
 import { PortfolioModal } from '@/components/modals/PortfolioModal';
 import { PortfolioItem } from '@/config/site';
 import { buildWhatsAppUrl } from '@/lib/whatsapp';
+import { LanguageProvider } from '@/context/LanguageContext';
 
 export default function Home() {
   const [isLeadModalOpen, setIsLeadModalOpen] = useState(false);
@@ -40,69 +41,71 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08090E] text-slate-100 flex flex-col selection:bg-indigo-500/30 selection:text-white">
-      {/* Sticky Header */}
-      <Navbar onOpenLeadModal={handleOpenLeadModal} />
+    <LanguageProvider>
+      <div className="min-h-screen bg-[#07080D] text-slate-100 flex flex-col selection:bg-indigo-500/30 selection:text-white">
+        {/* Sticky Header */}
+        <Navbar onOpenLeadModal={handleOpenLeadModal} />
 
-      {/* Main Content Funnel */}
-      <main className="flex-1">
-        {/* 01 Hero Section */}
-        <HeroSection onOpenLeadModal={handleOpenLeadModal} />
+        {/* Main Content Funnel */}
+        <main className="flex-1">
+          {/* 01 Hero Section */}
+          <HeroSection onOpenLeadModal={handleOpenLeadModal} />
 
-        {/* 02 Trust & Benefits Strip */}
-        <PositioningStrip />
+          {/* 02 Trust & Benefits Strip */}
+          <PositioningStrip />
 
-        {/* 03 Problem & Insight Section */}
-        <ProblemSection />
+          {/* 03 Problem & Insight Section */}
+          <ProblemSection />
 
-        {/* 04 Visual Standard Proof Section */}
-        <LiveProofSection />
+          {/* 04 Visual Standard Proof Section */}
+          <LiveProofSection />
 
-        {/* 05 RM899 Package Details Section */}
-        <PackageSection onOpenLeadModal={handleOpenLeadModal} />
+          {/* 05 RM899 Package Details Section */}
+          <PackageSection onOpenLeadModal={handleOpenLeadModal} />
 
-        {/* 06 Strategic Reason: Why RM899 is Possible */}
-        <WhyAffordableSection />
+          {/* 06 Strategic Reason: Why RM899 is Possible */}
+          <WhyAffordableSection />
 
-        {/* 07 Demo Concept Portfolio Showcase */}
-        <PortfolioShowcase onSelectPortfolioItem={handleSelectPortfolioItem} />
+          {/* 07 Demo Concept Portfolio Showcase */}
+          <PortfolioShowcase onSelectPortfolioItem={handleSelectPortfolioItem} />
 
-        {/* 08 Suitable Industries */}
-        <IndustryGrid onOpenLeadModal={handleOpenLeadModal} />
+          {/* 08 Suitable Industries */}
+          <IndustryGrid onOpenLeadModal={handleOpenLeadModal} />
 
-        {/* 09 4-Step Production Workflow Timeline */}
-        <ProcessTimeline />
+          {/* 09 4-Step Production Workflow Timeline */}
+          <ProcessTimeline />
 
-        {/* 10 Pre-start Transparency Guarantee */}
-        <PreStartTrust />
+          {/* 10 Pre-start Transparency Guarantee */}
+          <PreStartTrust />
 
-        {/* 11 Addons / Upsells Section */}
-        <AddonSection onOpenLeadModal={handleOpenLeadModal} />
+          {/* 11 Addons / Upsells Section */}
+          <AddonSection onOpenLeadModal={handleOpenLeadModal} />
 
-        {/* 12 FAQ Accordion */}
-        <FAQSection />
+          {/* 12 FAQ Accordion */}
+          <FAQSection />
 
-        {/* 13 Final High-Impact Conversion CTA */}
-        <FinalCTA onOpenLeadModal={handleOpenLeadModal} />
-      </main>
+          {/* 13 Final High-Impact Conversion CTA */}
+          <FinalCTA onOpenLeadModal={handleOpenLeadModal} />
+        </main>
 
-      {/* Footer */}
-      <Footer />
+        {/* Footer */}
+        <Footer />
 
-      {/* Floating WhatsApp Quick Contact Button */}
-      <FloatingWhatsApp onOpenLeadModal={handleOpenLeadModal} />
+        {/* Floating WhatsApp Quick Contact Button */}
+        <FloatingWhatsApp onOpenLeadModal={handleOpenLeadModal} />
 
-      {/* Interactive Modals */}
-      <LeadQualificationModal
-        isOpen={isLeadModalOpen}
-        onClose={() => setIsLeadModalOpen(false)}
-      />
+        {/* Interactive Modals */}
+        <LeadQualificationModal
+          isOpen={isLeadModalOpen}
+          onClose={() => setIsLeadModalOpen(false)}
+        />
 
-      <PortfolioModal
-        item={selectedPortfolioItem}
-        onClose={() => setSelectedPortfolioItem(null)}
-        onSelectWhatsApp={handlePortfolioWhatsApp}
-      />
-    </div>
+        <PortfolioModal
+          item={selectedPortfolioItem}
+          onClose={() => setSelectedPortfolioItem(null)}
+          onSelectWhatsApp={handlePortfolioWhatsApp}
+        />
+      </div>
+    </LanguageProvider>
   );
 }

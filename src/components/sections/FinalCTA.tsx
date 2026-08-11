@@ -5,12 +5,17 @@ import { MessageCircle, ShieldCheck, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { trackEvent } from '@/lib/analytics';
 import { Badge } from '@/components/ui/Badge';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 interface FinalCTAProps {
   onOpenLeadModal: () => void;
 }
 
 export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenLeadModal }) => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].finalCta;
+
   const handleWhatsApp = () => {
     trackEvent('final_whatsapp_click');
     onOpenLeadModal();
@@ -26,14 +31,16 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenLeadModal }) => {
           <div className="mb-2">
             <Badge variant="accent">
               <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-              <span>RMS STUDIO STARTER PACKAGE</span>
+              <span>{t.badge}</span>
             </Badge>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight max-w-3xl mx-auto">
-            你的生意已经开始了。
+            {t.headline}
             <br />
-            现在，给它一个<span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-300 to-sky-300">真正属于自己的网上门面</span>。
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-purple-300 to-sky-300">
+              {t.headlineHighlight}
+            </span>
           </h2>
 
           <div className="flex items-center justify-center gap-3 text-sm font-bold text-slate-300">
@@ -51,17 +58,17 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ onOpenLeadModal }) => {
               icon={<MessageCircle className="w-5 h-5 fill-slate-950" />}
               className="text-base font-black shadow-2xl"
             >
-              开始制作我的网站
+              {t.button}
             </Button>
           </div>
 
           <div className="pt-4 border-t border-white/10 max-w-xl mx-auto space-y-2">
             <p className="text-xs text-slate-300 font-medium">
-              💡 没有压力销售。先告诉我们你的行业，我们会客观评估这个配套是否适合你。
+              {t.note}
             </p>
             <div className="flex items-center justify-center gap-2 text-[11px] text-emerald-400 font-bold">
               <ShieldCheck className="w-3.5 h-3.5" />
-              <span>制作前确认完整费用 · 3–7 个工作日交付初稿</span>
+              <span>{t.guarantee}</span>
             </div>
           </div>
         </div>

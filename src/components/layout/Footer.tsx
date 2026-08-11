@@ -2,71 +2,76 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { MessageCircle, Globe, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 export const Footer: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].footer;
+
   return (
-    <footer className="bg-slate-950 border-t border-white/10 text-slate-400 py-12 md:py-16">
+    <footer className="bg-[#05060A] border-t border-white/10 text-slate-400 py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand Col */}
           <div className="md:col-span-2 space-y-4">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-violet to-brand-cyan flex items-center justify-center text-white font-black text-base shadow-md">
+            <Link href="/" className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-indigo-500 via-purple-500 to-sky-400 flex items-center justify-center text-white font-black text-base shadow-md">
                 R
               </div>
-              <span className="text-xl font-bold tracking-tight text-white">
+              <span className="text-xl font-extrabold tracking-tight text-white">
                 {siteConfig.brandName}
               </span>
             </Link>
             <p className="text-sm text-slate-400 max-w-md leading-relaxed">
-              为中小企业、创业者与个人品牌打造真正能够拿出去见客户的专业官网。清楚配套，专业设计，高效制作。
+              {t.desc}
             </p>
-            <div className="flex items-center gap-2 text-xs text-indigo-300 font-medium">
+            <div className="flex items-center gap-2 text-xs text-indigo-300 font-bold">
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>透明报价 · 明确范围 · 无隐形续费圈套</span>
+              <span>{t.badge}</span>
             </div>
           </div>
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-white tracking-wider uppercase">快捷导航</h4>
+            <h4 className="text-xs font-bold text-white tracking-wider uppercase">{t.navTitle}</h4>
             <ul className="space-y-2 text-xs">
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">案例展示</a>
+                <a href="#portfolio" className="hover:text-white transition-colors">Portfolio</a>
               </li>
               <li>
-                <a href="#package" className="hover:text-white transition-colors">RM899 配套</a>
+                <a href="#package" className="hover:text-white transition-colors">RM899 Package</a>
               </li>
               <li>
-                <a href="#why-affordable" className="hover:text-white transition-colors">优势解密</a>
+                <a href="#why-affordable" className="hover:text-white transition-colors">Why RM899</a>
               </li>
               <li>
-                <a href="#workflow" className="hover:text-white transition-colors">制作流程</a>
+                <a href="#workflow" className="hover:text-white transition-colors">Process</a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">常见问题</a>
+                <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
               </li>
             </ul>
           </div>
 
           {/* Legal & Policy */}
           <div className="space-y-3">
-            <h4 className="text-sm font-bold text-white tracking-wider uppercase">服务条款与隐私</h4>
+            <h4 className="text-xs font-bold text-white tracking-wider uppercase">{t.legalTitle}</h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/terms" className="hover:text-white transition-colors">
-                  服务范围与条款 (Terms & Scope)
+                  {t.termsLink}
                 </Link>
               </li>
               <li>
                 <Link href="/privacy" className="hover:text-white transition-colors">
-                  隐私权政策 (Privacy Policy)
+                  {t.privacyLink}
                 </Link>
               </li>
-              <li className="pt-2 text-[11px] text-slate-500">
-                服务咨询: {siteConfig.email}
+              <li className="pt-2 text-[11px] text-slate-500 font-mono">
+                {siteConfig.email}
               </li>
             </ul>
           </div>
@@ -76,7 +81,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>© {new Date().getFullYear()} {siteConfig.brandName}. All rights reserved.</p>
           <p className="text-center sm:text-right text-[11px]">
-            Domain & Cloud Hosting 为第三方独立服务，可依项目需求代办购买或自备绑定。
+            {t.disclaimer}
           </p>
         </div>
       </div>

@@ -4,18 +4,22 @@ import React from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { siteConfig } from '@/config/site';
 import { MessageSquare, UploadCloud, Layout, Rocket, Clock } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 export const ProcessTimeline: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].workflow;
   const stepIcons = [MessageSquare, UploadCloud, Layout, Rocket];
 
   return (
     <section id="workflow" className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="4-STEP WORKFLOW"
-          title="高效制作流程"
-          titleHighlight="最快 3 天正式上线"
-          subtitle="无需复杂的线下面谈与冗长的沟通流程。我们通过模块化协作，让您省时省心建立专业官网。"
+          eyebrow={t.eyebrow}
+          title={t.title}
+          titleHighlight={t.titleHighlight}
+          subtitle={t.subtitle}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto mb-10">
@@ -54,7 +58,7 @@ export const ProcessTimeline: React.FC = () => {
 
         <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 text-center max-w-2xl mx-auto flex items-center justify-center gap-2 text-xs text-slate-300 font-medium">
           <Clock className="w-4 h-4 text-indigo-400 shrink-0" />
-          <span>{siteConfig.deliveryNotice}</span>
+          <span>{t.notice}</span>
         </div>
       </div>
     </section>

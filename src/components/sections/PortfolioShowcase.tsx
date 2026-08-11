@@ -3,9 +3,11 @@
 import React, { useState } from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { siteConfig, PortfolioItem } from '@/config/site';
-import { Laptop, Smartphone, ArrowRight, Sparkles } from 'lucide-react';
+import { Laptop, Smartphone, ArrowRight } from 'lucide-react';
 import { trackEvent } from '@/lib/analytics';
 import { Badge } from '@/components/ui/Badge';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 interface PortfolioShowcaseProps {
   onSelectPortfolioItem: (item: PortfolioItem) => void;
@@ -14,17 +16,9 @@ interface PortfolioShowcaseProps {
 export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
   onSelectPortfolioItem,
 }) => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].portfolio;
   const [activeCategory, setActiveCategory] = useState<string>('all');
-
-  const categories = [
-    { id: 'all', label: '全部案例 (All Demos)' },
-    { id: 'restaurant', label: '高级餐饮 / Bistro' },
-    { id: 'beauty', label: '医美 / 美容养生' },
-    { id: 'renovation', label: '装修 / 建筑工程' },
-    { id: 'consultant', label: '企业顾问 / 金融' },
-    { id: 'personal', label: '个人品牌 / 导师' },
-    { id: 'creative', label: '摄影创意工作室' },
-  ];
 
   const filteredItems =
     activeCategory === 'all'
@@ -40,15 +34,15 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
     <section id="portfolio" className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="HIGH-END DEMO CONCEPTS"
-          title="RM899 真实质感案例"
-          titleHighlight="概念演示"
-          subtitle="以下为 RMS Studio 为各个不同行业打造的 Demo 概念设计。所有组件与排版均符合我们对 RM899 高端网站的品质要求。"
+          eyebrow={t.eyebrow}
+          title={t.title}
+          titleHighlight={t.titleHighlight}
+          subtitle={t.subtitle}
         />
 
         {/* Category Switcher */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {categories.map((cat) => (
+          {t.categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
@@ -92,14 +86,14 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
                 <div className="z-10 flex items-center justify-between text-[11px] text-slate-300 pt-2 border-t border-white/10 font-medium">
                   <div className="flex items-center gap-3">
                     <span className="flex items-center gap-1">
-                      <Laptop className="w-3.5 h-3.5 text-indigo-400" /> 桌面端
+                      <Laptop className="w-3.5 h-3.5 text-indigo-400" /> {t.desktop}
                     </span>
                     <span className="flex items-center gap-1">
-                      <Smartphone className="w-3.5 h-3.5 text-indigo-400" /> 手机端
+                      <Smartphone className="w-3.5 h-3.5 text-indigo-400" /> {t.mobile}
                     </span>
                   </div>
                   <span className="flex items-center gap-1 text-indigo-300 font-bold group-hover:translate-x-1 transition-transform">
-                    点击预览 <ArrowRight className="w-3 h-3" />
+                    {t.clickPreview} <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
               </div>
@@ -120,7 +114,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
         </div>
 
         <p className="mt-8 text-center text-xs text-slate-400 font-medium">
-          注：以上展示均为 RMS Studio 设计的 Demo 概念，旨在展现系统排版、美学与转化逻辑。
+          {t.note}
         </p>
       </div>
     </section>

@@ -2,24 +2,27 @@
 
 import React from 'react';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { siteConfig } from '@/config/site';
 import { CheckCircle2, XCircle, Layers, Cpu, Workflow } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 export const WhyAffordableSection: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].whyAffordable;
   const stepIcons = [Layers, Cpu, Workflow];
 
   return (
     <section id="why-affordable" className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="STRATEGIC TRANSPARENCY"
-          title={siteConfig.whyAffordable.title}
-          subtitle={siteConfig.whyAffordable.subtitle}
+          eyebrow={t.eyebrow}
+          title={t.title}
+          subtitle={t.subtitle}
         />
 
         {/* 3 Core Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 max-w-6xl mx-auto">
-          {siteConfig.whyAffordable.points.map((point, idx) => {
+          {t.pillars.map((point, idx) => {
             const Icon = stepIcons[idx] || Layers;
             return (
               <div
@@ -41,7 +44,7 @@ export const WhyAffordableSection: React.FC = () => {
 
                 <h3 className="text-lg font-extrabold text-white tracking-tight">{point.title}</h3>
                 <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  {point.description}
+                  {point.desc}
                 </p>
               </div>
             );
@@ -51,10 +54,10 @@ export const WhyAffordableSection: React.FC = () => {
         {/* Core Quote Banner */}
         <div className="mb-16 p-8 rounded-3xl bg-gradient-to-r from-indigo-950/50 via-slate-900 to-purple-950/50 border border-indigo-500/30 text-center max-w-3xl mx-auto space-y-3 shadow-xl">
           <p className="text-lg sm:text-xl font-black text-white">
-            “ AI 帮我们减少制作时间，不是减少对设计的要求。”
+            {t.quote}
           </p>
           <p className="text-xs sm:text-sm text-slate-300">
-            我们利用现代提效工具，将原本需要 30 小时的开发周期压缩至 5 小时内，因此能以更公道的价格交付高品质官网。
+            {t.quoteSub}
           </p>
         </div>
 
@@ -66,10 +69,10 @@ export const WhyAffordableSection: React.FC = () => {
               TRADITIONAL AGENCY
             </span>
             <h4 className="text-base font-bold text-slate-200">
-              {siteConfig.whyAffordable.comparison.traditionalTitle}
+              {t.tradTitle}
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-400">
-              {siteConfig.whyAffordable.comparison.traditionalSteps.map((step, i) => (
+              {t.tradSteps.map((step, i) => (
                 <li key={i} className="flex items-start gap-2.5">
                   <XCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
                   <span>{step}</span>
@@ -84,10 +87,10 @@ export const WhyAffordableSection: React.FC = () => {
               RMS MODERN WORKFLOW
             </span>
             <h4 className="text-base font-bold text-white">
-              {siteConfig.whyAffordable.comparison.rmsTitle}
+              {t.rmsTitle}
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-200">
-              {siteConfig.whyAffordable.comparison.rmsSteps.map((step, i) => (
+              {t.rmsSteps.map((step, i) => (
                 <li key={i} className="flex items-start gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                   <span className="font-medium text-white">{step}</span>

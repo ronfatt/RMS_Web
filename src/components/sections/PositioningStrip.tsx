@@ -2,22 +2,20 @@
 
 import React from 'react';
 import { Palette, Smartphone, MessageSquare, Search, Zap } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 export const PositioningStrip: React.FC = () => {
-  const benefits = [
-    { icon: Palette, title: '专业视觉排版', desc: '根据品牌色调高精排版' },
-    { icon: Smartphone, title: 'Mobile Responsive', desc: '完美适配手机与桌面端' },
-    { icon: MessageSquare, title: 'WhatsApp Integration', desc: '点击按键直达快速询价' },
-    { icon: Search, title: 'Basic SEO Setup', desc: '基础 On-Page 与谷歌抓取' },
-    { icon: Zap, title: '高效快速上线', desc: '标准化流程 3–7 天交付' },
-  ];
+  const { lang } = useLanguage();
+  const benefits = i18n[lang].positioning.benefits;
+  const icons = [Palette, Smartphone, MessageSquare, Search, Zap];
 
   return (
     <section className="py-10 bg-slate-950/80 border-y border-white/10 relative z-10 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
           {benefits.map((item, idx) => {
-            const Icon = item.icon;
+            const Icon = icons[idx] || Palette;
             return (
               <div
                 key={idx}

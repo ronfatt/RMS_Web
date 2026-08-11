@@ -3,8 +3,13 @@
 import React from 'react';
 import { CheckCircle2, ShieldCheck } from 'lucide-react';
 import { siteConfig } from '@/config/site';
+import { useLanguage } from '@/context/LanguageContext';
+import { i18n } from '@/config/i18n';
 
 export const PreStartTrust: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = i18n[lang].preStart;
+
   return (
     <section className="py-16 relative bg-slate-950 border-y border-slate-800/80">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,10 +18,10 @@ export const PreStartTrust: React.FC = () => {
             <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0" />
             <div>
               <h3 className="text-xl font-bold text-white">
-                合作承诺：开始之前，我们会先确认：
+                {t.title}
               </h3>
               <p className="text-xs text-slate-400">
-                清楚明白 · 制作前确认完整费用 · 无未经许可的临时加价
+                {t.subtitle}
               </p>
             </div>
           </div>
