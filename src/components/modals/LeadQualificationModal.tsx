@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { X, Send, CheckCircle2, Sparkles } from 'lucide-react';
+import { X, Send, CheckCircle2 } from 'lucide-react';
 import { buildWhatsAppUrl } from '@/lib/whatsapp';
 import { trackEvent } from '@/lib/analytics';
 import { LeadFormData } from '@/types';
@@ -16,7 +16,7 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
   onClose,
 }) => {
   const [formData, setFormData] = useState<LeadFormData>({
-    industry: '餐饮与食品',
+    industry: '餐饮与食品 (F&B / Restaurant)',
     brandName: '',
     hasWebsite: '暂无网页',
     websiteType: '公司官网 (Single-Page Funnel)',
@@ -36,16 +36,13 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md animate-fadeIn">
       <div
-        className="relative w-full max-w-lg bg-slate-900 border border-white/15 rounded-3xl p-6 sm:p-8 shadow-2xl shadow-indigo-950/60 overflow-hidden text-slate-100"
+        className="relative w-full max-w-lg bg-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl text-slate-100"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Glow accent */}
-        <div className="absolute -top-24 -right-24 w-48 h-48 bg-brand-violet/20 rounded-full blur-3xl pointer-events-none"></div>
-
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-900 transition-colors"
           aria-label="关闭"
         >
           <X className="w-5 h-5" />
@@ -53,14 +50,14 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
 
         {/* Header */}
         <div className="mb-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-violet/10 text-brand-cyan mb-2">
-            <Sparkles className="w-3.5 h-3.5" /> 快捷 WhatsApp 需求定位
-          </div>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-indigo-400 block mb-1">
+            QUICK WHATSAPP INQUIRY
+          </span>
           <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-            先告诉我们你的需求
+            先告诉我你的需求
           </h3>
-          <p className="text-xs sm:text-sm text-slate-400 mt-1">
-            只需 15 秒，我们将为您准备最精准的 RM899 配套建议。
+          <p className="text-xs text-slate-400 mt-1">
+            只需 15 秒填选，为您匹配最合适的 RM899 建议方案。
           </p>
         </div>
 
@@ -74,7 +71,7 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
             <select
               value={formData.industry}
               onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-white/15 text-slate-200 text-sm focus:outline-none focus:border-brand-violet"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-slate-600"
             >
               <option value="餐饮与食品 (F&B / Restaurant)">餐饮与食品 (F&B / Restaurant)</option>
               <option value="美容美发 / 医美诊所 (Beauty / SPA)">美容美发 / 医美诊所 (Beauty / SPA)</option>
@@ -97,7 +94,7 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
               placeholder="例如：L'Aura Bistro 或 铭记装修"
               value={formData.brandName}
               onChange={(e) => setFormData({ ...formData, brandName: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-white/15 text-slate-200 text-sm placeholder-slate-500 focus:outline-none focus:border-brand-violet"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm placeholder-slate-500 focus:outline-none focus:border-slate-600"
             />
           </div>
 
@@ -114,8 +111,8 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
                   onClick={() => setFormData({ ...formData, hasWebsite: status })}
                   className={`py-2 px-2 text-xs font-medium rounded-xl border transition-all ${
                     formData.hasWebsite === status
-                      ? 'bg-brand-violet/20 border-brand-violet text-white font-semibold'
-                      : 'bg-slate-950/60 border-white/10 text-slate-400 hover:border-white/20'
+                      ? 'bg-slate-800 border-slate-600 text-white font-semibold'
+                      : 'bg-slate-900 border-slate-800 text-slate-400 hover:border-slate-700'
                   }`}
                 >
                   {status}
@@ -132,7 +129,7 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
             <select
               value={formData.websiteType}
               onChange={(e) => setFormData({ ...formData, websiteType: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-white/15 text-slate-200 text-sm focus:outline-none focus:border-brand-violet"
+              className="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-200 text-sm focus:outline-none focus:border-slate-600"
             >
               <option value="公司官网 (Single-Page Funnel)">公司官网 (Single-Page Funnel)</option>
               <option value="产品 / 菜单展示 (Product Showcase)">产品 / 菜单展示 (Product Showcase)</option>
@@ -146,16 +143,16 @@ export const LeadQualificationModal: React.FC<LeadQualificationModalProps> = ({
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-[#25D366] text-slate-950 hover:bg-[#20bd5a] transition-all shadow-lg shadow-[#25D366]/25 flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 px-6 rounded-xl font-bold text-sm bg-[#25D366] text-slate-950 hover:bg-[#20bd5a] transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
             >
               <Send className="w-4 h-4" />
-              继续前往 WhatsApp 对接
+              前往 WhatsApp 直接沟通
             </button>
           </div>
 
           <p className="text-[11px] text-center text-slate-500 flex items-center justify-center gap-1">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-            无需注册账号 · 无压力销售咨询
+            无需注册账号 · 无压力销售
           </p>
         </form>
       </div>

@@ -26,34 +26,34 @@ export const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className="space-y-4 max-w-3xl mx-auto">
+    <div className="space-y-3 max-w-3xl mx-auto">
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (
           <div
             key={item.id}
             className={cn(
-              'rounded-2xl border transition-all duration-300 overflow-hidden',
+              'rounded-xl border transition-all duration-200 overflow-hidden',
               isOpen
-                ? 'bg-slate-900/90 border-brand-violet/40 shadow-lg shadow-indigo-950/20'
-                : 'bg-slate-900/40 border-white/10 hover:border-white/20'
+                ? 'bg-slate-900 border-slate-700'
+                : 'bg-slate-950 border-slate-800 hover:border-slate-700'
             )}
           >
             <button
               onClick={() => toggleItem(item.id)}
               aria-expanded={isOpen}
-              className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-slate-100 hover:text-indigo-300 focus:outline-none transition-colors"
+              className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-semibold text-slate-100 hover:text-white focus:outline-none transition-colors"
             >
-              <span className="text-base md:text-lg leading-snug">{item.question}</span>
+              <span className="text-sm md:text-base leading-snug">{item.question}</span>
               <ChevronDown
                 className={cn(
-                  'w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300',
-                  isOpen && 'transform rotate-180 text-brand-cyan'
+                  'w-4 h-4 text-slate-400 shrink-0 transition-transform duration-200',
+                  isOpen && 'transform rotate-180 text-white'
                 )}
               />
             </button>
             {isOpen && (
-              <div className="px-6 pb-6 pt-1 text-sm md:text-base text-slate-300 leading-relaxed border-t border-white/5 animate-fadeIn">
+              <div className="px-6 pb-5 text-xs md:text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 pt-3">
                 {item.answer}
               </div>
             )}

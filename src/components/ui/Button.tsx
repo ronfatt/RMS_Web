@@ -23,19 +23,19 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-brand-violet/50 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
+      'inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-slate-400/30 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none cursor-pointer';
 
     const variants = {
       primary:
-        'bg-gradient-to-r from-brand-violet to-brand-purple text-white shadow-lg shadow-brand-violet/25 hover:shadow-brand-violet/40 hover:opacity-95',
+        'bg-slate-100 text-slate-950 font-bold hover:bg-white shadow-lg shadow-white/10 hover:shadow-white/20',
       secondary:
-        'bg-white/10 text-white hover:bg-white/15 border border-white/10 backdrop-blur-md',
+        'bg-slate-900 text-slate-200 hover:bg-slate-800 border border-slate-800',
       whatsapp:
-        'bg-[#25D366] text-slate-950 font-semibold shadow-lg shadow-[#25D366]/20 hover:shadow-[#25D366]/35 hover:bg-[#20bd5a]',
+        'bg-[#25D366] text-slate-950 font-bold shadow-lg shadow-[#25D366]/20 hover:shadow-[#25D366]/35 hover:bg-[#20bd5a]',
       outline:
-        'border border-white/20 text-slate-200 hover:bg-white/5 hover:border-white/30',
+        'border border-slate-800 text-slate-200 hover:bg-slate-900 hover:border-slate-700',
       ghost:
-        'text-slate-300 hover:text-white hover:bg-white/5',
+        'text-slate-400 hover:text-white hover:bg-slate-900',
     };
 
     const sizes = {
