@@ -1589,6 +1589,12 @@ body {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-cyan-950\/60 {
+  --tw-gradient-from: rgb(8 51 68 / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(8 51 68 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-emerald-950\/60 {
   --tw-gradient-from: rgb(2 44 34 / 0.6) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(2 44 34 / 0) var(--tw-gradient-to-position);
@@ -1631,15 +1637,39 @@ body {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-indigo-950\/60 {
+  --tw-gradient-from: rgb(30 27 75 / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(30 27 75 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-purple-950\/60 {
   --tw-gradient-from: rgb(59 7 100 / 0.6) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(59 7 100 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-rose-950\/60 {
+  --tw-gradient-from: rgb(76 5 25 / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(76 5 25 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-sky-950\/60 {
+  --tw-gradient-from: rgb(8 47 73 / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(8 47 73 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 .from-slate-950 {
   --tw-gradient-from: #020617 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(2 6 23 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-teal-950\/60 {
+  --tw-gradient-from: rgb(4 47 46 / 0.6) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(4 47 46 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
