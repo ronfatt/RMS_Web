@@ -38,12 +38,12 @@ export const DeviceMockup: React.FC<DeviceMockupProps> = ({
 
     if (cleanUrl.includes('sinbanhock') || title.includes('Sin Ban Hock')) {
       return {
-        badge: 'SIN BAN HOCK TRADING · 建筑五金与建材工程',
-        headline: 'Sin Ban Hock Trading (新万福建材)',
-        subheadline: '马来西亚专业建筑五金、施工材料、水暖器材与工程供应一站式批发展示。质量保证，快速供货。',
-        ctaPrimary: '询价 WhatsApp 了解',
-        ctaSecondary: '浏览建材目录',
-        navItems: ['首页', '建材分类', '工程案例', '联系我们'],
+        badge: 'SIN BAN HOCK MOTOR · 摩托车经销与销售',
+        headline: 'Sin Ban Hock Motor Dealership (新万福摩托)',
+        subheadline: '马来西亚专业摩托车销售、分期付款贷款预审、保养维修与新车落地服务。一键 WhatsApp 提交购车咨询。',
+        ctaPrimary: 'WhatsApp 购车咨询',
+        ctaSecondary: '浏览热门车款',
+        navItems: ['首页', '热门车款', '分期付款', '联系我们'],
         gradient: 'from-slate-950 via-blue-950/70 to-slate-950',
         accentColor: 'bg-blue-500 text-slate-950 shadow-blue-500/30',
       };
