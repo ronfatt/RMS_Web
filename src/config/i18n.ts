@@ -467,10 +467,10 @@ export const i18n: Record<Language, Translations> = {
       ],
     },
     portfolio: {
-      eyebrow: 'HIGH-END DEMO CONCEPTS',
-      title: 'RM899 Quality Portfolio',
-      titleHighlight: 'Demo Concepts',
-      subtitle: 'Explore demo concepts crafted for various Malaysian industries. All layouts meet our strict RM899 visual standard.',
+      eyebrow: 'FEATURED CLIENT PROJECTS',
+      title: 'Real Work & Client Showcase',
+      titleHighlight: '',
+      subtitle: 'Explore live websites and interactive demos crafted by RMS Studio for real Malaysian businesses, corporate clients, and personal brands.',
       categories: [
         { id: 'all', label: 'All Projects' },
         { id: 'automotive', label: 'Motorcycle & Automotive' },
@@ -481,7 +481,7 @@ export const i18n: Record<Language, Translations> = {
         { id: 'personal', label: 'Personal Brand & Coach' },
         { id: 'creative', label: 'Creative & Media' },
       ],
-      note: 'Note: Above items are concept demos created by RMS Studio to showcase design aesthetics and conversion flow.',
+      note: 'Authentic client work & interactive demos crafted by RMS Studio.',
       clickPreview: 'Click to Preview',
       desktop: 'Desktop',
       mobile: 'Mobile',

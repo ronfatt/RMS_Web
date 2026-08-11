@@ -40,10 +40,10 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
     <section id="portfolio" className="py-20 md:py-28 relative bg-[#07080D]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="FEATURED CLIENT PROJECTS"
-          title="Real Work & Client Showcase"
-          titleHighlight="已上线真实客户案例"
-          subtitle="Explore live websites crafted by RMS Studio for real Malaysian businesses, corporate clients, and personal brands."
+          eyebrow={t.eyebrow}
+          title={t.title}
+          titleHighlight={t.titleHighlight}
+          subtitle={t.subtitle}
         />
 
         {/* Category Switcher */}
@@ -126,7 +126,7 @@ export const PortfolioShowcase: React.FC<PortfolioShowcaseProps> = ({
         </div>
 
         <p className="mt-8 text-center text-xs text-slate-400 font-medium">
-          真实客户成功案例展现 · 验证 RMS Studio 卓越的设计美学与高品质交付能力
+          {t.note}
         </p>
       </div>
     </section>
